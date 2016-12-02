@@ -98,6 +98,28 @@ public class green
                 System.out.println("Error: " + te.getMessage());
                 System.exit(-1);
             }
+
+            System.out.println("\n" + "The following are public tweets related to the search: environmental rallies." + "\n");
+            
+            try
+            {
+                Query query = new Query("environmental rallies");
+                QueryResult result;
+                result = twitter.search(query);
+                List<Status> status = result.getTweets();
+                for (Status s : status)
+                {
+                    System.out.println("@" + s.getUser().getName() + ":" + s.getText() + "\n");
+                }
+            }
+        
+            catch (TwitterException te)
+            {
+                te.printStackTrace();
+                System.out.println("Error: " + te.getMessage());
+                System.exit(-1);
+            }
+
         }
 
 
