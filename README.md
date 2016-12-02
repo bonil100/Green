@@ -2,7 +2,7 @@
 
 Description: 
 
-This project uses API's from Twitter and Facebook to keep updated with climate change news. This will allow users to search tweets of the top climate change news twitter accounts and search by hashtag. With the use of the Facebook API, the user will be able to search for public events that will help them get involved with climate change efforts (like protests, rallies, and community events).
+This project uses API's from Twitter to keep updated with climate change news. This will allow users to search tweets of the top climate change news twitter accounts and search by hashtag. With the last query of the program, users will be able to search for ways to get involved with climate change like protests, rallies, and community events.
 
 Twitter Library:
 
