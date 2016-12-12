@@ -1,3 +1,11 @@
+/**
+*	Uses Twitter API to gather tweets about climate change
+*	Uses preset search queries and personal home timeline
+*
+*	@author: Courtney Bonilla
+*/
+
+
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.*;
 import java.util.List;
@@ -39,15 +47,18 @@ public class green
             {
                 try
                 {
+                	//get tweets from home timeline
                     List<Status> status = twitter.getHomeTimeline();
                     System.out.println("Showing home timeline of environmental users. \n");
+
+             		//print the list of tweets gathered in this format: user: tweet
                     for (Status s : status)
                     {
                         System.out.println(s.getUser().getName() + ":" + s.getText() + "\n");
                     }
                 }
             
-                catch (TwitterException te)
+                catch (TwitterException te) //throws twitterexception
                 {
                     te.printStackTrace();
                     System.out.println("Error: " + te.getMessage());
@@ -64,14 +75,15 @@ public class green
                 
                 try
                 {   
+                	//set new search query 
                     Query query = new Query("climatechange");
                     QueryResult result;
                     result = twitter.search(query);
-                    List<Status> status = result.getTweets();
+                    List<Status> status = result.getTweets();  //get the results and list them 
                     for (Status s : status)
                     {
-                    System.out.println("@" + s.getUser().getName() + ":" + s.getText() + "\n");
-                    }
+                    System.out.println("@" + s.getUser().getName() + ":" + s.getText() + "\n"); //format for result tweets-> user: tweet
+                    }																			//with \n new line in between for readability
                 }
             
                 catch (TwitterException te)
@@ -132,6 +144,7 @@ public class green
                 count = 0;
             }
 
+            //continued user input, allows for new search
             Scanner input2 = new Scanner(System.in);
             System.out.println("Do you want to search again? Enter 'yes' or 'no' . ");
             String response2 = input2.nextLine();
